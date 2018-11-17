@@ -15,16 +15,19 @@ const Exercice = () =>(
     </div>
     )
 
-const Formulaire = () =>(
+const Formulaire = ({ num }) =>{
+    const exercices = []
+    for (let i = 0; i < num; i++) {
+        exercices.push(<Exercice key={i} />)
+    }
+    return (
     <form>
-        <Exercice/>
-        <Exercice/>
-        <Exercice/>
-        <Exercice/>
+        { exercices }
         <Button
         type='primary'htmlType='submit'>Envoyer le PDF
         </Button>
     </form>
-)
+            )
+    }
 
 export default Formulaire

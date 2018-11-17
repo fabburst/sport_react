@@ -1,13 +1,35 @@
 import React, { Component } from 'react'
 import './App.css'
 import Formulaire from './components/Formulaire'
+import { Input } from 'antd'
 
 class App extends Component {
+  state = {
+    num: 0
+  }
+
+  handleChange = event => {
+    const num = event.target.value
+    this.setState({ num })
+  }
   render() {
     return (
       <div className="App">
       <h1>Exercices</h1>
-      <Formulaire />
+      <Input 
+        value={this.state.num}
+        onChange={this.handleChange}
+        type='number'
+        min='0'
+        max='7'
+        addonBefore='Num'
+        style={{ 
+          witdh: '160px',
+          marginBottom: '16px'
+         }}
+         />s
+
+      <Formulaire num={this.state.num} />
       </div>
     );
   }
